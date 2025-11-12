@@ -10,6 +10,11 @@ public class HRCalculator {
 
     public static String getWorkoutZone(int age, int bpm) {
         int MHR = calculateMaxHR(age);
+        if (bpm < 20 || bpm > 200) {
+            throw new IllegalArgumentException(
+                    "BPM out of bounds"
+            );
+        }
         double intensity = (double) bpm / MHR;
         if (intensity >= 0.5 && intensity < 0.6) {
             return "Moderate Activity (Maintenance/warm up)";
