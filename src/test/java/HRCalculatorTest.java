@@ -65,4 +65,14 @@ public class HRCalculatorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> HRCalculator.getWorkoutZone(-4, 120));
     }
+    @Test
+    public void testZeroIntensity(){
+        assertThrows(IllegalArgumentException.class,
+                () -> HRCalculator.getWorkoutZone(0, 0));
+    }
+    @Test
+    public void testIntensityOver1(){
+        assertThrows(IllegalArgumentException.class,
+                () -> HRCalculator.getWorkoutZone(90,140 ));
+    }
 }
